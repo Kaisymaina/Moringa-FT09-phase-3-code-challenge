@@ -5,16 +5,18 @@ from models.magazine import Magazine
 
 class TestModels(unittest.TestCase):
     def test_author_creation(self):
-        author = Author(1, "John Doe")
+        author = Author(None, "John Doe")  # Providing id as None, as it will be assigned automatically
         self.assertEqual(author.name, "John Doe")
 
     def test_article_creation(self):
-        article = Article(1, "Test Title", "Test Content", 1, 1)
+        article = Article(None, "Test Title", "Test Content", 1, 1)  # Assuming author_id and magazine_id are 1 for the test
         self.assertEqual(article.title, "Test Title")
 
     def test_magazine_creation(self):
-        magazine = Magazine(1, "Tech Weekly")
+        magazine = Magazine(None, "Tech Weekly", "Technology")  # Providing id as None, as it will be assigned automatically
         self.assertEqual(magazine.name, "Tech Weekly")
+        self.assertEqual(magazine.category, "Technology")
 
 if __name__ == "__main__":
     unittest.main()
+
